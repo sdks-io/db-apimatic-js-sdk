@@ -134,12 +134,12 @@ Accessor: `client.template` · Source: `src/resources/template.ts` · 11 operati
 
 ### templateDelete
 
-- **Signature**: `templateDelete(request: Template.TemplateDeleteRequest, options?: RequestOptions): ApiPromise<Record<string, unknown>, Template.TemplateDeleteError>`
+- **Signature**: `templateDelete(request: Template.TemplateDeleteRequest, options?: RequestOptions): ApiPromise<undefined, Template.TemplateDeleteError>`
 - **Wire**: `POST /template/delete/{template_id}`
 - **Auth**: any of `apiKey`, `oauth2` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **SDK-sent**: `header Idempotency-Key` (minted per call)
-- **Returns**: `Record<string, unknown>` — a bare `application/json` map; the success type *is* the map
+- **Returns**: `undefined` — the operation resolves to nothing
 - **Error**: `DropboxSignApiError` with `kind: "api"`, an instance of `Template.TemplateDeleteError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"errorResponse"` [4XX wildcard] `ErrorResponse` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 

@@ -310,7 +310,7 @@ export class SignatureRequest {
   signatureRequestCancel(
     request: SignatureRequest.SignatureRequestCancelRequest,
     options?: RequestOptions,
-  ): ApiPromise<Record<string, unknown>, SignatureRequest.SignatureRequestCancelError> {
+  ): ApiPromise<undefined, SignatureRequest.SignatureRequestCancelError> {
     return this.#rawClient.execute(
       {
         method: "POST",
@@ -322,7 +322,7 @@ export class SignatureRequest {
         body: { kind: "empty" },
       },
       {
-        success: { kind: "json", schema: s.record(s.string(), s.unknown()) },
+        success: { kind: "empty" },
         errorFactory: SignatureRequest.SignatureRequestCancelError,
       },
       options,
@@ -1476,7 +1476,7 @@ export class SignatureRequest {
   signatureRequestRemove(
     request: SignatureRequest.SignatureRequestRemoveRequest,
     options?: RequestOptions,
-  ): ApiPromise<Record<string, unknown>, SignatureRequest.SignatureRequestRemoveError> {
+  ): ApiPromise<undefined, SignatureRequest.SignatureRequestRemoveError> {
     return this.#rawClient.execute(
       {
         method: "POST",
@@ -1488,7 +1488,7 @@ export class SignatureRequest {
         body: { kind: "empty" },
       },
       {
-        success: { kind: "json", schema: s.record(s.string(), s.unknown()) },
+        success: { kind: "empty" },
         errorFactory: SignatureRequest.SignatureRequestRemoveError,
       },
       options,

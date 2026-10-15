@@ -84,12 +84,12 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 
 ### signatureRequestCancel
 
-- **Signature**: `signatureRequestCancel(request: SignatureRequest.SignatureRequestCancelRequest, options?: RequestOptions): ApiPromise<Record<string, unknown>, SignatureRequest.SignatureRequestCancelError>`
+- **Signature**: `signatureRequestCancel(request: SignatureRequest.SignatureRequestCancelRequest, options?: RequestOptions): ApiPromise<undefined, SignatureRequest.SignatureRequestCancelError>`
 - **Wire**: `POST /signature_request/cancel/{signature_request_id}`
 - **Auth**: any of `apiKey`, `oauth2` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **SDK-sent**: `header Idempotency-Key` (minted per call)
-- **Returns**: `Record<string, unknown>` — a bare `application/json` map; the success type *is* the map
+- **Returns**: `undefined` — the operation resolves to nothing
 - **Error**: `DropboxSignApiError` with `kind: "api"`, an instance of `SignatureRequest.SignatureRequestCancelError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"errorResponse"` [4XX wildcard] `ErrorResponse` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
@@ -553,12 +553,12 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 
 ### signatureRequestRemove
 
-- **Signature**: `signatureRequestRemove(request: SignatureRequest.SignatureRequestRemoveRequest, options?: RequestOptions): ApiPromise<Record<string, unknown>, SignatureRequest.SignatureRequestRemoveError>`
+- **Signature**: `signatureRequestRemove(request: SignatureRequest.SignatureRequestRemoveRequest, options?: RequestOptions): ApiPromise<undefined, SignatureRequest.SignatureRequestRemoveError>`
 - **Wire**: `POST /signature_request/remove/{signature_request_id}`
 - **Auth**: `apiKey`
 - **Request body**: none — no `Content-Type` header is sent
 - **SDK-sent**: `header Idempotency-Key` (minted per call)
-- **Returns**: `Record<string, unknown>` — a bare `application/json` map; the success type *is* the map
+- **Returns**: `undefined` — the operation resolves to nothing
 - **Error**: `DropboxSignApiError` with `kind: "api"`, an instance of `SignatureRequest.SignatureRequestRemoveError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"errorResponse"` [4XX wildcard] `ErrorResponse` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 

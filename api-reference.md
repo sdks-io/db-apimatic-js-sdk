@@ -584,7 +584,7 @@ if (result.ok) {
 </details>
 
 <details>
-<summary><code>signatureRequestCancel(request: SignatureRequest.SignatureRequestCancelRequest, options?: RequestOptions): ApiPromise&lt;Record&lt;string, unknown&gt;, SignatureRequest.SignatureRequestCancelError&gt;</code></summary>
+<summary><code>signatureRequestCancel(request: SignatureRequest.SignatureRequestCancelRequest, options?: RequestOptions): ApiPromise&lt;undefined, SignatureRequest.SignatureRequestCancelError&gt;</code></summary>
 
 <dl>
 <dd>
@@ -614,10 +614,9 @@ To be eligible for cancelation, a signature request must have been sent successf
 
 ```ts
 try {
-  const response = await client.signatureRequest.signatureRequestCancel({
+  await client.signatureRequest.signatureRequestCancel({
     signatureRequestId: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
   });
-  // TODO: Handle 'response' of type Record<string, unknown>
 } catch (err) {
   // TODO: Handle 'err' of type SignatureRequest.SignatureRequestCancelError, discriminated with 'err.payload.kind'
 }
@@ -637,7 +636,7 @@ const result = await client.signatureRequest.signatureRequestCancel({
 }).asApiResult();
 // TODO: Use 'result.status' and 'result.headers' to read the raw response status and headers
 if (result.ok) {
-  // TODO: Use 'result.value' of type Record<string, unknown>
+  // TODO: The call succeeded and resolves to no body
 } else {
   // TODO: Handle 'result', discriminated with 'result.payload.kind'
 }
@@ -665,12 +664,12 @@ if (result.ok) {
 
 **Direct**: `await client.signatureRequest.signatureRequestCancel(request)`
 
-- **OnSuccess**: <code>Record&lt;string, unknown&gt;</code>
+- **OnSuccess**: <code>undefined</code>
 - **OnError**: throws <code>[SignatureRequest.SignatureRequestCancelError](src/resources/signature-request.ts)</code>, with `err.payload` discriminated on `kind`
 
 **As ApiResult**: `await client.signatureRequest.signatureRequestCancel(request).asApiResult()`
 
-- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;Record&lt;string, unknown&gt;, SignatureRequest.SignatureRequestCancelError&gt;</code>, with `result.value` of type <code>Record&lt;string, unknown&gt;</code>
+- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;undefined, SignatureRequest.SignatureRequestCancelError&gt;</code>, with `result.value` of type <code>undefined</code>
 - **OnError**: `result.payload` discriminated on `kind`, with `result.message`
 
 **Thrown**: <code>[DropboxSignApiError](src/core/errors.ts)</code> on any operational failure — a caller abort and a programmer error stay outside the family and reach you raw
@@ -2039,7 +2038,7 @@ if (result.ok) {
 </details>
 
 <details>
-<summary><code>signatureRequestRemove(request: SignatureRequest.SignatureRequestRemoveRequest, options?: RequestOptions): ApiPromise&lt;Record&lt;string, unknown&gt;, SignatureRequest.SignatureRequestRemoveError&gt;</code></summary>
+<summary><code>signatureRequestRemove(request: SignatureRequest.SignatureRequestRemoveRequest, options?: RequestOptions): ApiPromise&lt;undefined, SignatureRequest.SignatureRequestRemoveError&gt;</code></summary>
 
 <dl>
 <dd>
@@ -2065,10 +2064,9 @@ Unlike /signature_request/cancel, this endpoint is synchronous and your access w
 
 ```ts
 try {
-  const response = await client.signatureRequest.signatureRequestRemove({
+  await client.signatureRequest.signatureRequestRemove({
     signatureRequestId: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
   });
-  // TODO: Handle 'response' of type Record<string, unknown>
 } catch (err) {
   // TODO: Handle 'err' of type SignatureRequest.SignatureRequestRemoveError, discriminated with 'err.payload.kind'
 }
@@ -2088,7 +2086,7 @@ const result = await client.signatureRequest.signatureRequestRemove({
 }).asApiResult();
 // TODO: Use 'result.status' and 'result.headers' to read the raw response status and headers
 if (result.ok) {
-  // TODO: Use 'result.value' of type Record<string, unknown>
+  // TODO: The call succeeded and resolves to no body
 } else {
   // TODO: Handle 'result', discriminated with 'result.payload.kind'
 }
@@ -2116,12 +2114,12 @@ if (result.ok) {
 
 **Direct**: `await client.signatureRequest.signatureRequestRemove(request)`
 
-- **OnSuccess**: <code>Record&lt;string, unknown&gt;</code>
+- **OnSuccess**: <code>undefined</code>
 - **OnError**: throws <code>[SignatureRequest.SignatureRequestRemoveError](src/resources/signature-request.ts)</code>, with `err.payload` discriminated on `kind`
 
 **As ApiResult**: `await client.signatureRequest.signatureRequestRemove(request).asApiResult()`
 
-- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;Record&lt;string, unknown&gt;, SignatureRequest.SignatureRequestRemoveError&gt;</code>, with `result.value` of type <code>Record&lt;string, unknown&gt;</code>
+- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;undefined, SignatureRequest.SignatureRequestRemoveError&gt;</code>, with `result.value` of type <code>undefined</code>
 - **OnError**: `result.payload` discriminated on `kind`, with `result.message`
 
 **Thrown**: <code>[DropboxSignApiError](src/core/errors.ts)</code> on any operational failure — a caller abort and a programmer error stay outside the family and reach you raw
@@ -2813,7 +2811,7 @@ if (result.ok) {
 </details>
 
 <details>
-<summary><code>templateDelete(request: Template.TemplateDeleteRequest, options?: RequestOptions): ApiPromise&lt;Record&lt;string, unknown&gt;, Template.TemplateDeleteError&gt;</code></summary>
+<summary><code>templateDelete(request: Template.TemplateDeleteRequest, options?: RequestOptions): ApiPromise&lt;undefined, Template.TemplateDeleteError&gt;</code></summary>
 
 <dl>
 <dd>
@@ -2835,10 +2833,7 @@ Completely deletes the template specified from the account.
 
 ```ts
 try {
-  const response = await client.template.templateDelete({
-    templateId: "f57db65d3f933b5316d398057a36176831451a35",
-  });
-  // TODO: Handle 'response' of type Record<string, unknown>
+  await client.template.templateDelete({ templateId: "f57db65d3f933b5316d398057a36176831451a35" });
 } catch (err) {
   // TODO: Handle 'err' of type Template.TemplateDeleteError, discriminated with 'err.payload.kind'
 }
@@ -2858,7 +2853,7 @@ const result = await client.template.templateDelete({
 }).asApiResult();
 // TODO: Use 'result.status' and 'result.headers' to read the raw response status and headers
 if (result.ok) {
-  // TODO: Use 'result.value' of type Record<string, unknown>
+  // TODO: The call succeeded and resolves to no body
 } else {
   // TODO: Handle 'result', discriminated with 'result.payload.kind'
 }
@@ -2886,12 +2881,12 @@ if (result.ok) {
 
 **Direct**: `await client.template.templateDelete(request)`
 
-- **OnSuccess**: <code>Record&lt;string, unknown&gt;</code>
+- **OnSuccess**: <code>undefined</code>
 - **OnError**: throws <code>[Template.TemplateDeleteError](src/resources/template.ts)</code>, with `err.payload` discriminated on `kind`
 
 **As ApiResult**: `await client.template.templateDelete(request).asApiResult()`
 
-- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;Record&lt;string, unknown&gt;, Template.TemplateDeleteError&gt;</code>, with `result.value` of type <code>Record&lt;string, unknown&gt;</code>
+- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;undefined, Template.TemplateDeleteError&gt;</code>, with `result.value` of type <code>undefined</code>
 - **OnError**: `result.payload` discriminated on `kind`, with `result.message`
 
 **Thrown**: <code>[DropboxSignApiError](src/core/errors.ts)</code> on any operational failure — a caller abort and a programmer error stay outside the family and reach you raw
@@ -6352,7 +6347,7 @@ if (result.ok) {
 </details>
 
 <details>
-<summary><code>faxLineDelete(request: FaxLine.FaxLineDeleteRequestParams, options?: RequestOptions): ApiPromise&lt;Record&lt;string, unknown&gt;, FaxLine.FaxLineDeleteError&gt;</code></summary>
+<summary><code>faxLineDelete(request: FaxLine.FaxLineDeleteRequestParams, options?: RequestOptions): ApiPromise&lt;undefined, FaxLine.FaxLineDeleteError&gt;</code></summary>
 
 <dl>
 <dd>
@@ -6374,8 +6369,7 @@ Deletes the specified Fax Line from the subscription.
 
 ```ts
 try {
-  const response = await client.faxLine.faxLineDelete({ body: { number: "some example string" } });
-  // TODO: Handle 'response' of type Record<string, unknown>
+  await client.faxLine.faxLineDelete({ body: { number: "some example string" } });
 } catch (err) {
   // TODO: Handle 'err' of type FaxLine.FaxLineDeleteError, discriminated with 'err.payload.kind'
 }
@@ -6393,7 +6387,7 @@ try {
 const result = await client.faxLine.faxLineDelete({ body: { number: "some example string" } }).asApiResult();
 // TODO: Use 'result.status' and 'result.headers' to read the raw response status and headers
 if (result.ok) {
-  // TODO: Use 'result.value' of type Record<string, unknown>
+  // TODO: The call succeeded and resolves to no body
 } else {
   // TODO: Handle 'result', discriminated with 'result.payload.kind'
 }
@@ -6421,12 +6415,12 @@ if (result.ok) {
 
 **Direct**: `await client.faxLine.faxLineDelete(request)`
 
-- **OnSuccess**: <code>Record&lt;string, unknown&gt;</code>
+- **OnSuccess**: <code>undefined</code>
 - **OnError**: throws <code>[FaxLine.FaxLineDeleteError](src/resources/fax-line.ts)</code>, with `err.payload` discriminated on `kind`
 
 **As ApiResult**: `await client.faxLine.faxLineDelete(request).asApiResult()`
 
-- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;Record&lt;string, unknown&gt;, FaxLine.FaxLineDeleteError&gt;</code>, with `result.value` of type <code>Record&lt;string, unknown&gt;</code>
+- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;undefined, FaxLine.FaxLineDeleteError&gt;</code>, with `result.value` of type <code>undefined</code>
 - **OnError**: `result.payload` discriminated on `kind`, with `result.message`
 
 **Thrown**: <code>[DropboxSignApiError](src/core/errors.ts)</code> on any operational failure — a caller abort and a programmer error stay outside the family and reach you raw

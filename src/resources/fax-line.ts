@@ -190,7 +190,7 @@ export class FaxLine {
   faxLineDelete(
     request: FaxLine.FaxLineDeleteRequestParams,
     options?: RequestOptions,
-  ): ApiPromise<Record<string, unknown>, FaxLine.FaxLineDeleteError> {
+  ): ApiPromise<undefined, FaxLine.FaxLineDeleteError> {
     return this.#rawClient.execute(
       {
         method: "DELETE",
@@ -202,7 +202,7 @@ export class FaxLine {
         body: { kind: "json", value: request.body, schema: faxLineDeleteRequestSchema },
       },
       {
-        success: { kind: "json", schema: s.record(s.string(), s.unknown()) },
+        success: { kind: "empty" },
         errorFactory: FaxLine.FaxLineDeleteError,
       },
       options,

@@ -429,7 +429,7 @@ export class Template {
   templateDelete(
     request: Template.TemplateDeleteRequest,
     options?: RequestOptions,
-  ): ApiPromise<Record<string, unknown>, Template.TemplateDeleteError> {
+  ): ApiPromise<undefined, Template.TemplateDeleteError> {
     return this.#rawClient.execute(
       {
         method: "POST",
@@ -441,7 +441,7 @@ export class Template {
         body: { kind: "empty" },
       },
       {
-        success: { kind: "json", schema: s.record(s.string(), s.unknown()) },
+        success: { kind: "empty" },
         errorFactory: Template.TemplateDeleteError,
       },
       options,

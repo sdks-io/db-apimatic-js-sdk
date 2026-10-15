@@ -81,12 +81,12 @@ Accessor: `client.faxLine` · Source: `src/resources/fax-line.ts` · 7 operation
 
 ### faxLineDelete
 
-- **Signature**: `faxLineDelete(request: FaxLine.FaxLineDeleteRequestParams, options?: RequestOptions): ApiPromise<Record<string, unknown>, FaxLine.FaxLineDeleteError>`
+- **Signature**: `faxLineDelete(request: FaxLine.FaxLineDeleteRequestParams, options?: RequestOptions): ApiPromise<undefined, FaxLine.FaxLineDeleteError>`
 - **Wire**: `DELETE /fax_line`
 - **Auth**: `apiKey`
 - **Request body**: `application/json` — the `body` field
 - **SDK-sent**: `header Idempotency-Key` (minted per call)
-- **Returns**: `Record<string, unknown>` — a bare `application/json` map; the success type *is* the map
+- **Returns**: `undefined` — the operation resolves to nothing
 - **Error**: `DropboxSignApiError` with `kind: "api"`, an instance of `FaxLine.FaxLineDeleteError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"errorResponse"` [4XX wildcard] `ErrorResponse` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
