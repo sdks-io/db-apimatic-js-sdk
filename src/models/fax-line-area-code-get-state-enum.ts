@@ -1,0 +1,62 @@
+import * as s from "../core/validation/index.js";
+import type { EnumSchema } from "../core/validation/schema.js";
+
+export const FaxLineAreaCodeGetStateEnum = {
+  Ak: "AK",
+  Al: "AL",
+  Ar: "AR",
+  Az: "AZ",
+  Ca: "CA",
+  Co: "CO",
+  Ct: "CT",
+  Dc: "DC",
+  De: "DE",
+  Fl: "FL",
+  Ga: "GA",
+  Hi: "HI",
+  Ia: "IA",
+  Id: "ID",
+  Il: "IL",
+  In: "IN",
+  Ks: "KS",
+  Ky: "KY",
+  La: "LA",
+  Ma: "MA",
+  Md: "MD",
+  Me: "ME",
+  Mi: "MI",
+  Mn: "MN",
+  Mo: "MO",
+  Ms: "MS",
+  Mt: "MT",
+  Nc: "NC",
+  Nd: "ND",
+  Ne: "NE",
+  Nh: "NH",
+  Nj: "NJ",
+  Nm: "NM",
+  Nv: "NV",
+  Ny: "NY",
+  Oh: "OH",
+  Ok: "OK",
+  Or: "OR",
+  Pa: "PA",
+  Ri: "RI",
+  Sc: "SC",
+  Sd: "SD",
+  Tn: "TN",
+  Tx: "TX",
+  Ut: "UT",
+  Va: "VA",
+  Vt: "VT",
+  Wa: "WA",
+  Wi: "WI",
+  Wv: "WV",
+  Wy: "WY",
+} as const;
+export type FaxLineAreaCodeGetStateEnum =
+  | (typeof FaxLineAreaCodeGetStateEnum)[keyof typeof FaxLineAreaCodeGetStateEnum]
+  | (string & {});
+
+export const faxLineAreaCodeGetStateEnumSchema: EnumSchema<FaxLineAreaCodeGetStateEnum> =
+  s.enumOf<FaxLineAreaCodeGetStateEnum>(FaxLineAreaCodeGetStateEnum);
