@@ -58,7 +58,7 @@ Accessor: `client.template` · Source: `src/resources/template.ts` · 11 operati
 | `formFieldRules` | `form` | `form_field_rules` | `SubFormFieldRule[]` | no | — |
 | `mergeFields` | `form` | `merge_fields` | `SubMergeField[]` | no | — |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `subject` | `form` | — | `string` | no | — |
 | `testMode` | `form` | `test_mode` | `boolean` | no | `false` |
 | `title` | `form` | — | `string` | no | — |
@@ -108,7 +108,7 @@ Accessor: `client.template` · Source: `src/resources/template.ts` · 11 operati
 | `formFieldsPerDocument` | `form` | `form_fields_per_document` | `SubFormFieldsPerDocumentBase[]` | no | — |
 | `mergeFields` | `form` | `merge_fields` | `SubMergeField[]` | no | — |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `showPreview` | `form` | `show_preview` | `boolean` | no | `false` |
 | `showProgressStepper` | `form` | `show_progress_stepper` | `boolean` | no | `true` |
 | `signerRoles` | `form` | `signer_roles` | `SubTemplateRole[]` | no | — |
@@ -155,11 +155,11 @@ Accessor: `client.template` · Source: `src/resources/template.ts` · 11 operati
 
 ### templateFiles
 
-- **Signature**: `templateFiles(request: Template.TemplateFilesRequest, options?: RequestOptions): ApiPromise<undefined, Template.TemplateFilesError>`
+- **Signature**: `templateFiles(request: Template.TemplateFilesRequest, options?: RequestOptions): ApiPromise<BinaryContent, Template.TemplateFilesError>`
 - **Wire**: `GET /template/files/{template_id}`
 - **Auth**: any of `apiKey`, `oauth2` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
-- **Returns**: `undefined` — the operation resolves to nothing
+- **Returns**: `BinaryContent` — an unread `stream` the caller owns: buffer it with `new Response(…)`, read it with a reader or `for await`, or release it with `stream.cancel()`
 - **Error**: `DropboxSignApiError` with `kind: "api"`, an instance of `Template.TemplateFilesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"errorResponse"` [4XX wildcard] `ErrorResponse` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 

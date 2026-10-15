@@ -38,7 +38,7 @@ export type BulkSendJobGetResponseSignatureRequests = {
   /** The custom message in the email that was initially sent to the signers. */
   message?: string | null;
   /** The metadata attached to the signature request. */
-  metadata?: Record<string, Record<string, unknown>>;
+  metadata?: Record<string, unknown>;
   /** Time the signature request was created. */
   createdAt?: number;
   /**
@@ -108,7 +108,7 @@ export const bulkSendJobGetResponseSignatureRequestsSchema: Schema<BulkSendJobGe
     originalTitle: s.optional(s.string()),
     subject: s.optionalNullable(s.string()),
     message: s.optionalNullable(s.string()),
-    metadata: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+    metadata: s.optional(s.record(s.string(), s.unknown())),
     createdAt: s.optional(s.int()),
     expiresAt: s.optionalNullable(s.int()),
     isComplete: s.optional(s.boolean()),

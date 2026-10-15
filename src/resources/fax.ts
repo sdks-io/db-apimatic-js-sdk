@@ -2,7 +2,7 @@ import type { AuthSchemes } from "../auth-schemes.js";
 import { ApiError, type Declared, type Undeclared } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
-import type { FileInput } from "../core/binary.js";
+import type { BinaryContent, FileInput } from "../core/binary.js";
 import type { RawClient } from "../core/raw-client.js";
 import type { ErrorDecoders } from "../core/response-decoder.js";
 import { uuid } from "../core/uuid.js";
@@ -75,7 +75,10 @@ export class Fax {
    * a timeout, a body that would not decode, a value that would not encode, or a credential that
    * could not be obtained
    */
-  faxFiles(request: Fax.FaxFilesRequest, options?: RequestOptions): ApiPromise<undefined, Fax.FaxFilesError> {
+  faxFiles(
+    request: Fax.FaxFilesRequest,
+    options?: RequestOptions,
+  ): ApiPromise<BinaryContent, Fax.FaxFilesError> {
     return this.#rawClient.execute(
       {
         method: "GET",
@@ -87,7 +90,7 @@ export class Fax {
         body: { kind: "empty" },
       },
       {
-        success: { kind: "empty" },
+        success: { kind: "binary", contentType: "application/octet-stream" },
         errorFactory: Fax.FaxFilesError,
       },
       options,

@@ -153,7 +153,7 @@ export class UnclaimedDraft {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -372,7 +372,7 @@ export class UnclaimedDraft {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -587,7 +587,7 @@ export class UnclaimedDraft {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -814,7 +814,7 @@ export namespace UnclaimedDraft {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * When only one step remains in the signature request process and this parameter is set to
      * `false` then the progress stepper will be hidden.
@@ -1029,7 +1029,7 @@ export namespace UnclaimedDraft {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /** The URL you want signers redirected to after they successfully request a signature. */
     requestingRedirectUrl?: string;
     /**
@@ -1228,7 +1228,7 @@ export namespace UnclaimedDraft {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to enable the preview experience (i.e. does not allow the
      * requester's end user to add any additional fields via the editor).

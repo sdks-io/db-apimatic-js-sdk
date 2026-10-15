@@ -142,7 +142,7 @@ export type UnclaimedDraftCreateEmbeddedRequest = {
    * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up
    * to 40 characters long and values up to 1000 characters long.
    */
-  metadata?: Record<string, Record<string, unknown>>;
+  metadata?: Record<string, unknown>;
   /**
    * The email address of the user that should be designated as the requester of this draft, if the
    * draft type is `request_signature`.
@@ -273,7 +273,7 @@ export const unclaimedDraftCreateEmbeddedRequestSchema: Schema<UnclaimedDraftCre
     holdRequest: s.defaulted(s.boolean(), false),
     isForEmbeddedSigning: s.defaulted(s.boolean(), false),
     message: s.optional(s.string()),
-    metadata: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+    metadata: s.optional(s.record(s.string(), s.unknown())),
     requesterEmailAddress: s.string(),
     requestingRedirectUrl: s.optional(s.string()),
     showPreview: s.optional(s.boolean()),

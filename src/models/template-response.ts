@@ -62,7 +62,7 @@ export type TemplateResponse = {
    */
   isLocked?: boolean;
   /** The metadata attached to the template. */
-  metadata?: Record<string, Record<string, unknown>>;
+  metadata?: Record<string, unknown>;
   /**
    * An array of the designated signer roles that must be specified when sending a SignatureRequest
    * using this Template.
@@ -109,7 +109,7 @@ export const templateResponseSchema: Schema<TemplateResponse> = s.object<Templat
   isCreator: s.optional(s.boolean()),
   canEdit: s.optional(s.boolean()),
   isLocked: s.optional(s.boolean()),
-  metadata: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+  metadata: s.optional(s.record(s.string(), s.unknown())),
   signerRoles: s.optional(s.array(s.lazy(() => templateResponseSignerRoleSchema))),
   ccRoles: s.optional(s.array(s.lazy(() => templateResponseCcRoleSchema))),
   documents: s.optional(s.array(s.lazy(() => templateResponseDocumentSchema))),

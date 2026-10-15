@@ -3,7 +3,7 @@ import { ApiError, type Declared, type Undeclared } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
-import type { FileInput } from "../core/binary.js";
+import type { BinaryContent, FileInput } from "../core/binary.js";
 import type { RawClient } from "../core/raw-client.js";
 import type { ErrorDecoders } from "../core/response-decoder.js";
 import { uuid } from "../core/uuid.js";
@@ -205,7 +205,7 @@ export class Template {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             { kind: "text", name: "subject", value: request.subject, schema: s.optional(s.string()) },
             {
@@ -354,7 +354,7 @@ export class Template {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -470,7 +470,7 @@ export class Template {
   templateFiles(
     request: Template.TemplateFilesRequest,
     options?: RequestOptions,
-  ): ApiPromise<undefined, Template.TemplateFilesError> {
+  ): ApiPromise<BinaryContent, Template.TemplateFilesError> {
     return this.#rawClient.execute(
       {
         method: "GET",
@@ -484,7 +484,7 @@ export class Template {
         body: { kind: "empty" },
       },
       {
-        success: { kind: "empty" },
+        success: { kind: "binary", contentType: "application/octet-stream" },
         errorFactory: Template.TemplateFilesError,
       },
       options,
@@ -870,7 +870,7 @@ export namespace Template {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /** The template title (alias). */
     subject?: string;
     /**
@@ -999,7 +999,7 @@ export namespace Template {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to enable the editor/preview experience.
      *

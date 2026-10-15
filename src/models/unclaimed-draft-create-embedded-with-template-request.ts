@@ -86,7 +86,7 @@ export type UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
    * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up
    * to 40 characters long and values up to 1000 characters long.
    */
-  metadata?: Record<string, Record<string, unknown>>;
+  metadata?: Record<string, unknown>;
   /**
    * This allows the requester to enable the preview experience (i.e. does not allow the requester's
    * end user to add any additional fields via the editor).
@@ -192,7 +192,7 @@ export const unclaimedDraftCreateEmbeddedWithTemplateRequestSchema: Schema<Uncla
     holdRequest: s.defaulted(s.boolean(), false),
     isForEmbeddedSigning: s.defaulted(s.boolean(), false),
     message: s.optional(s.string()),
-    metadata: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+    metadata: s.optional(s.record(s.string(), s.unknown())),
     previewOnly: s.defaulted(s.boolean(), false),
     requesterEmailAddress: s.string(),
     requestingRedirectUrl: s.optional(s.string()),

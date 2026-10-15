@@ -81,7 +81,7 @@ export type SignatureRequestBulkCreateEmbeddedWithTemplateRequest = {
    * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up
    * to 40 characters long and values up to 1000 characters long.
    */
-  metadata?: Record<string, Record<string, unknown>>;
+  metadata?: Record<string, unknown>;
   /** The URL you want signers redirected to after they successfully sign. */
   signingRedirectUrl?: string;
   /** The subject in the email that will be sent to the signers. */
@@ -113,7 +113,7 @@ export const signatureRequestBulkCreateEmbeddedWithTemplateRequestSchema: Schema
     clientId: s.string(),
     customFields: s.optional(s.array(s.lazy(() => subCustomFieldSchema))),
     message: s.optional(s.string()),
-    metadata: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+    metadata: s.optional(s.record(s.string(), s.unknown())),
     signingRedirectUrl: s.optional(s.string()),
     subject: s.optional(s.string()),
     testMode: s.defaulted(s.boolean(), false),

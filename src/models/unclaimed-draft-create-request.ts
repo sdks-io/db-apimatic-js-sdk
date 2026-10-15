@@ -104,7 +104,7 @@ export type UnclaimedDraftCreateRequest = {
    * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up
    * to 40 characters long and values up to 1000 characters long.
    */
-  metadata?: Record<string, Record<string, unknown>>;
+  metadata?: Record<string, unknown>;
   /**
    * When only one step remains in the signature request process and this parameter is set to
    * `false` then the progress stepper will be hidden.
@@ -195,7 +195,7 @@ export const unclaimedDraftCreateRequestSchema: Schema<UnclaimedDraftCreateReque
     formFieldsPerDocument: s.optional(s.array(s.lazy(() => subFormFieldsPerDocumentBaseSchema))),
     hideTextTags: s.defaulted(s.boolean(), false),
     message: s.optional(s.string()),
-    metadata: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+    metadata: s.optional(s.record(s.string(), s.unknown())),
     showProgressStepper: s.defaulted(s.boolean(), true),
     signers: s.optional(s.array(s.lazy(() => subUnclaimedDraftSignerSchema))),
     signingOptions: s.optional(s.lazy(() => subSigningOptionsSchema)),

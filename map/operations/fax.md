@@ -29,11 +29,11 @@ Accessor: `client.fax` · Source: `src/resources/fax.ts` · 5 operations · Requ
 
 ### faxFiles
 
-- **Signature**: `faxFiles(request: Fax.FaxFilesRequest, options?: RequestOptions): ApiPromise<undefined, Fax.FaxFilesError>`
+- **Signature**: `faxFiles(request: Fax.FaxFilesRequest, options?: RequestOptions): ApiPromise<BinaryContent, Fax.FaxFilesError>`
 - **Wire**: `GET /fax/files/{fax_id}`
 - **Auth**: `apiKey`
 - **Request body**: none — no `Content-Type` header is sent
-- **Returns**: `undefined` — the operation resolves to nothing
+- **Returns**: `BinaryContent` — an unread `stream` the caller owns: buffer it with `new Response(…)`, read it with a reader or `for await`, or release it with `stream.cancel()`
 - **Error**: `DropboxSignApiError` with `kind: "api"`, an instance of `Fax.FaxFilesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"errorResponse"` [4XX wildcard] `ErrorResponse` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 

@@ -3,7 +3,7 @@ import { ApiError, type Declared, type Undeclared } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
-import type { FileInput } from "../core/binary.js";
+import type { BinaryContent, FileInput } from "../core/binary.js";
 import type { RawClient } from "../core/raw-client.js";
 import type { ErrorDecoders } from "../core/response-decoder.js";
 import { uuid } from "../core/uuid.js";
@@ -139,7 +139,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -237,7 +237,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -448,7 +448,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -572,7 +572,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -731,7 +731,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -903,7 +903,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -1028,7 +1028,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -1133,7 +1133,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -1187,7 +1187,7 @@ export class SignatureRequest {
   signatureRequestFiles(
     request: SignatureRequest.SignatureRequestFilesRequest,
     options?: RequestOptions,
-  ): ApiPromise<undefined, SignatureRequest.SignatureRequestFilesError> {
+  ): ApiPromise<BinaryContent, SignatureRequest.SignatureRequestFilesError> {
     return this.#rawClient.execute(
       {
         method: "GET",
@@ -1201,7 +1201,7 @@ export class SignatureRequest {
         body: { kind: "empty" },
       },
       {
-        success: { kind: "empty" },
+        success: { kind: "binary", contentType: "application/octet-stream" },
         errorFactory: SignatureRequest.SignatureRequestFilesError,
       },
       options,
@@ -1613,7 +1613,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -1734,7 +1734,7 @@ export class SignatureRequest {
               kind: "text",
               name: "metadata",
               value: request.metadata,
-              schema: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+              schema: s.optional(s.record(s.string(), s.unknown())),
             },
             {
               kind: "text",
@@ -1901,7 +1901,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /** The URL you want signers redirected to after they successfully sign. */
     signingRedirectUrl?: string;
     /** The subject in the email that will be sent to the signers. */
@@ -2013,7 +2013,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /** The URL you want signers redirected to after they successfully sign. */
     signingRedirectUrl?: string;
     /** The subject in the email that will be sent to the signers. */
@@ -2174,7 +2174,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to specify the types allowed for creating a signature and specify
      * another signing options.
@@ -2287,7 +2287,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to specify the types allowed for creating a signature and specify
      * another signing options.
@@ -2466,7 +2466,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to specify the types allowed for creating a signature and specify
      * another signing options.
@@ -2641,7 +2641,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to specify the types allowed for creating a signature and specify
      * another signing options.
@@ -2756,7 +2756,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to specify the types allowed for creating a signature and specify
      * another signing options.
@@ -2860,7 +2860,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to specify the types allowed for creating a signature and specify
      * another signing options.
@@ -3156,7 +3156,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to specify the types allowed for creating a signature and specify
      * another signing options.
@@ -3270,7 +3270,7 @@ export namespace SignatureRequest {
      * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names
      * up to 40 characters long and values up to 1000 characters long.
      */
-    metadata?: Record<string, Record<string, unknown>>;
+    metadata?: Record<string, unknown>;
     /**
      * This allows the requester to specify the types allowed for creating a signature and specify
      * another signing options.

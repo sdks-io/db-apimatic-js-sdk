@@ -35,7 +35,7 @@ Accessor: `client.unclaimedDraft` · Source: `src/resources/unclaimed-draft.ts` 
 | `formFieldsPerDocument` | `form` | `form_fields_per_document` | `SubFormFieldsPerDocumentBase[]` | no | — |
 | `hideTextTags` | `form` | `hide_text_tags` | `boolean` | no | `false` |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `showProgressStepper` | `form` | `show_progress_stepper` | `boolean` | no | `true` |
 | `signers` | `form` | — | `SubUnclaimedDraftSigner[]` | no | — |
 | `signingOptions` | `form` | `signing_options` | `SubSigningOptions` | no | — |
@@ -97,7 +97,7 @@ Accessor: `client.unclaimedDraft` · Source: `src/resources/unclaimed-draft.ts` 
 | `holdRequest` | `form` | `hold_request` | `boolean` | no | `false` |
 | `isForEmbeddedSigning` | `form` | `is_for_embedded_signing` | `boolean` | no | `false` |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `requestingRedirectUrl` | `form` | `requesting_redirect_url` | `string` | no | — |
 | `showPreview` | `form` | `show_preview` | `boolean` | no | — |
 | `showProgressStepper` | `form` | `show_progress_stepper` | `boolean` | no | `true` |
@@ -160,7 +160,7 @@ Accessor: `client.unclaimedDraft` · Source: `src/resources/unclaimed-draft.ts` 
 | `holdRequest` | `form` | `hold_request` | `boolean` | no | `false` |
 | `isForEmbeddedSigning` | `form` | `is_for_embedded_signing` | `boolean` | no | `false` |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `previewOnly` | `form` | `preview_only` | `boolean` | no | `false` |
 | `requestingRedirectUrl` | `form` | `requesting_redirect_url` | `string` | no | — |
 | `showPreview` | `form` | `show_preview` | `boolean` | no | `false` |

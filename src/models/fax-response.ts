@@ -14,7 +14,7 @@ export type FaxResponse = {
   /** Fax Message */
   message?: string | null;
   /** Fax Metadata */
-  metadata: Record<string, Record<string, unknown>>;
+  metadata: Record<string, unknown>;
   /** Fax Created At Timestamp */
   createdAt: number;
   /** Fax Sender Email */
@@ -39,7 +39,7 @@ export const faxResponseSchema: Schema<FaxResponse> = s.object<FaxResponse>({
   originalTitle: s.string(),
   subject: s.optionalNullable(s.string()),
   message: s.optionalNullable(s.string()),
-  metadata: s.record(s.string(), s.record(s.string(), s.unknown())),
+  metadata: s.record(s.string(), s.unknown()),
   createdAt: s.int(),
   sender: s.string(),
   filesUrl: s.string(),

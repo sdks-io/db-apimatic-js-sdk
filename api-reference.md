@@ -441,7 +441,7 @@ if (result.ok) {
 | <code>ccs?</code> | <code>[SubCc](src/models/sub-cc.ts)[]</code> | Add CC email recipients. Required when a CC role exists for the Template. |
 | <code>customFields?</code> | <code>[SubCustomField](src/models/sub-custom-field.ts)[]</code> | When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.<br><br>Pre-filled data can be used with "send-once" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.<br><br>For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template. |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingRedirectUrl?</code> | <code>string</code> | The URL you want signers redirected to after they successfully sign. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
 | <code>testMode?</code> | <code>boolean</code> | Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.<br>**Default**: false |
@@ -548,7 +548,7 @@ if (result.ok) {
 | <code>clientId?</code> | <code>string</code> | The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app. |
 | <code>customFields?</code> | <code>[SubCustomField](src/models/sub-custom-field.ts)[]</code> | When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.<br><br>Pre-filled data can be used with "send-once" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.<br><br>For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template. |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingRedirectUrl?</code> | <code>string</code> | The URL you want signers redirected to after they successfully sign. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
 | <code>testMode?</code> | <code>boolean</code> | Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.<br>**Default**: false |
@@ -761,7 +761,7 @@ if (result.ok) {
 | <code>formFieldsPerDocument?</code> | <code>[SubFormFieldsPerDocumentBase](src/models/unions/sub-form-fields-per-document-base.ts)[]</code> | The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)<br><br>**NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.<br><br>* Text Field use `SubFormFieldsPerDocumentText`<br>* Dropdown Field use `SubFormFieldsPerDocumentDropdown`<br>* Hyperlink Field use `SubFormFieldsPerDocumentHyperlink`<br>* Checkbox Field use `SubFormFieldsPerDocumentCheckbox`<br>* Radio Field use `SubFormFieldsPerDocumentRadio`<br>* Signature Field use `SubFormFieldsPerDocumentSignature`<br>* Date Signed Field use `SubFormFieldsPerDocumentDateSigned`<br>* Initials Field use `SubFormFieldsPerDocumentInitials`<br>* Text Merge Field use `SubFormFieldsPerDocumentTextMerge`<br>* Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge` |
 | <code>hideTextTags?</code> | <code>boolean</code> | Enables automatic Text Tag removal when set to true.<br><br>**NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.<br>**Default**: false |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingOptions?</code> | <code>[SubSigningOptions](src/models/sub-signing-options.ts)</code> | This allows the requester to specify the types allowed for creating a signature and specify another signing options.<br><br>**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.<br><br>**NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
 | <code>testMode?</code> | <code>boolean</code> | Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.<br>**Default**: false |
@@ -874,7 +874,7 @@ if (result.ok) {
 | <code>files?</code> | <code>FileInput</code> | Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both. |
 | <code>fileUrls?</code> | <code>string[]</code> | Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both. |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingOptions?</code> | <code>[SubSigningOptions](src/models/sub-signing-options.ts)</code> | This allows the requester to specify the types allowed for creating a signature and specify another signing options.<br><br>**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.<br><br>**NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
 | <code>testMode?</code> | <code>boolean</code> | Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.<br>**Default**: false |
@@ -992,7 +992,7 @@ if (result.ok) {
 | <code>hideTextTags?</code> | <code>boolean</code> | Enables automatic Text Tag removal when set to true.<br><br>**NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.<br>**Default**: false |
 | <code>isEid?</code> | <code>boolean</code> | Send with a value of `true` if you wish to enable<br>[electronic identification (eID)](https://www.hellosign.com/features/electronic-id),<br>which requires the signer to verify their identity with an eID provider to sign a document.<br><br>**NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.<br>**Default**: false |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingOptions?</code> | <code>[SubSigningOptions](src/models/sub-signing-options.ts)</code> | This allows the requester to specify the types allowed for creating a signature and specify another signing options.<br><br>**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.<br><br>**NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too. |
 | <code>signingRedirectUrl?</code> | <code>string</code> | The URL you want signers redirected to after they successfully sign. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
@@ -1113,7 +1113,7 @@ if (result.ok) {
 | <code>formFieldsPerDocument?</code> | <code>[SubFormFieldsPerDocumentBase](src/models/unions/sub-form-fields-per-document-base.ts)[]</code> | The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)<br><br>**NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.<br><br>* Text Field use `SubFormFieldsPerDocumentText`<br>* Dropdown Field use `SubFormFieldsPerDocumentDropdown`<br>* Hyperlink Field use `SubFormFieldsPerDocumentHyperlink`<br>* Checkbox Field use `SubFormFieldsPerDocumentCheckbox`<br>* Radio Field use `SubFormFieldsPerDocumentRadio`<br>* Signature Field use `SubFormFieldsPerDocumentSignature`<br>* Date Signed Field use `SubFormFieldsPerDocumentDateSigned`<br>* Initials Field use `SubFormFieldsPerDocumentInitials`<br>* Text Merge Field use `SubFormFieldsPerDocumentTextMerge`<br>* Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge` |
 | <code>hideTextTags?</code> | <code>boolean</code> | Enables automatic Text Tag removal when set to true.<br><br>**NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.<br>**Default**: false |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingOptions?</code> | <code>[SubSigningOptions](src/models/sub-signing-options.ts)</code> | This allows the requester to specify the types allowed for creating a signature and specify another signing options.<br><br>**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.<br><br>**NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
 | <code>testMode?</code> | <code>boolean</code> | Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.<br>**Default**: false |
@@ -1231,7 +1231,7 @@ if (result.ok) {
 | <code>files?</code> | <code>FileInput</code> | Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both. |
 | <code>fileUrls?</code> | <code>string[]</code> | Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both. |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingOptions?</code> | <code>[SubSigningOptions](src/models/sub-signing-options.ts)</code> | This allows the requester to specify the types allowed for creating a signature and specify another signing options.<br><br>**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.<br><br>**NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
 | <code>testMode?</code> | <code>boolean</code> | Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.<br>**Default**: false |
@@ -1345,7 +1345,7 @@ if (result.ok) {
 | <code>fileUrls?</code> | <code>string[]</code> | Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both. |
 | <code>isEid?</code> | <code>boolean</code> | Send with a value of `true` if you wish to enable<br>[electronic identification (eID)](https://www.hellosign.com/features/electronic-id),<br>which requires the signer to verify their identity with an eID provider to sign a document.<br><br>**NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.<br>**Default**: false |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingOptions?</code> | <code>[SubSigningOptions](src/models/sub-signing-options.ts)</code> | This allows the requester to specify the types allowed for creating a signature and specify another signing options.<br><br>**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.<br><br>**NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too. |
 | <code>signingRedirectUrl?</code> | <code>string</code> | The URL you want signers redirected to after they successfully sign. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
@@ -1381,7 +1381,7 @@ if (result.ok) {
 </details>
 
 <details>
-<summary><code>signatureRequestFiles(request: SignatureRequest.SignatureRequestFilesRequest, options?: RequestOptions): ApiPromise&lt;undefined, SignatureRequest.SignatureRequestFilesError&gt;</code></summary>
+<summary><code>signatureRequestFiles(request: SignatureRequest.SignatureRequestFilesRequest, options?: RequestOptions): ApiPromise&lt;BinaryContent, SignatureRequest.SignatureRequestFilesError&gt;</code></summary>
 
 <dl>
 <dd>
@@ -1405,9 +1405,10 @@ If the files are currently being prepared, a status code of `409` will be return
 
 ```ts
 try {
-  await client.signatureRequest.signatureRequestFiles({
+  const response = await client.signatureRequest.signatureRequestFiles({
     signatureRequestId: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
   });
+  // TODO: Handle 'response' of type BinaryContent
 } catch (err) {
   // TODO: Handle 'err' of type SignatureRequest.SignatureRequestFilesError, discriminated with 'err.payload.kind'
 }
@@ -1427,7 +1428,7 @@ const result = await client.signatureRequest.signatureRequestFiles({
 }).asApiResult();
 // TODO: Use 'result.status' and 'result.headers' to read the raw response status and headers
 if (result.ok) {
-  // TODO: The call succeeded and resolves to no body
+  // TODO: Use 'result.value' of type BinaryContent
 } else {
   // TODO: Handle 'result', discriminated with 'result.payload.kind'
 }
@@ -1456,12 +1457,12 @@ if (result.ok) {
 
 **Direct**: `await client.signatureRequest.signatureRequestFiles(request)`
 
-- **OnSuccess**: <code>undefined</code>
+- **OnSuccess**: <code>BinaryContent</code>
 - **OnError**: throws <code>[SignatureRequest.SignatureRequestFilesError](src/resources/signature-request.ts)</code>, with `err.payload` discriminated on `kind`
 
 **As ApiResult**: `await client.signatureRequest.signatureRequestFiles(request).asApiResult()`
 
-- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;undefined, SignatureRequest.SignatureRequestFilesError&gt;</code>, with `result.value` of type <code>undefined</code>
+- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;BinaryContent, SignatureRequest.SignatureRequestFilesError&gt;</code>, with `result.value` of type <code>BinaryContent</code>
 - **OnError**: `result.payload` discriminated on `kind`, with `result.message`
 
 **Thrown**: <code>[DropboxSignApiError](src/core/errors.ts)</code> on any operational failure — a caller abort and a programmer error stay outside the family and reach you raw
@@ -2208,7 +2209,7 @@ if (result.ok) {
 | <code>hideTextTags?</code> | <code>boolean</code> | Enables automatic Text Tag removal when set to true.<br><br>**NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.<br>**Default**: false |
 | <code>isEid?</code> | <code>boolean</code> | Send with a value of `true` if you wish to enable<br>[electronic identification (eID)](https://www.hellosign.com/features/electronic-id),<br>which requires the signer to verify their identity with an eID provider to sign a document.<br><br>**NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.<br>**Default**: false |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingOptions?</code> | <code>[SubSigningOptions](src/models/sub-signing-options.ts)</code> | This allows the requester to specify the types allowed for creating a signature and specify another signing options.<br><br>**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.<br><br>**NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too. |
 | <code>signingRedirectUrl?</code> | <code>string</code> | The URL you want signers redirected to after they successfully sign. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
@@ -2320,7 +2321,7 @@ if (result.ok) {
 | <code>fileUrls?</code> | <code>string[]</code> | Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both. |
 | <code>isEid?</code> | <code>boolean</code> | Send with a value of `true` if you wish to enable<br>[electronic identification (eID)](https://www.hellosign.com/features/electronic-id),<br>which requires the signer to verify their identity with an eID provider to sign a document.<br><br>**NOTE:** You need the eID add-on to use this feature. Please [contact sales](https://sign.dropbox.com/form/contact-sales) for more information. Cannot be used in `test_mode`. Only works on requests with one signer.<br>**Default**: false |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>signingOptions?</code> | <code>[SubSigningOptions](src/models/sub-signing-options.ts)</code> | This allows the requester to specify the types allowed for creating a signature and specify another signing options.<br><br>**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.<br><br>**NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too. |
 | <code>signingRedirectUrl?</code> | <code>string</code> | The URL you want signers redirected to after they successfully sign. |
 | <code>subject?</code> | <code>string</code> | The subject in the email that will be sent to the signers. |
@@ -2661,7 +2662,7 @@ if (result.ok) {
 | <code>formFieldRules?</code> | <code>[SubFormFieldRule](src/models/sub-form-field-rule.ts)[]</code> | Conditional Logic rules for fields defined in `form_fields_per_document`. |
 | <code>mergeFields?</code> | <code>[SubMergeField](src/models/sub-merge-field.ts)[]</code> | Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.<br>If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document. |
 | <code>message?</code> | <code>string</code> | The default template email message. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>subject?</code> | <code>string</code> | The template title (alias). |
 | <code>testMode?</code> | <code>boolean</code> | Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.<br>**Default**: false |
 | <code>title?</code> | <code>string</code> | The title you want to assign to the SignatureRequest. |
@@ -2772,7 +2773,7 @@ if (result.ok) {
 | <code>formFieldsPerDocument?</code> | <code>[SubFormFieldsPerDocumentBase](src/models/unions/sub-form-fields-per-document-base.ts)[]</code> | The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)<br><br>**NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.<br><br>* Text Field use `SubFormFieldsPerDocumentText`<br>* Dropdown Field use `SubFormFieldsPerDocumentDropdown`<br>* Hyperlink Field use `SubFormFieldsPerDocumentHyperlink`<br>* Checkbox Field use `SubFormFieldsPerDocumentCheckbox`<br>* Radio Field use `SubFormFieldsPerDocumentRadio`<br>* Signature Field use `SubFormFieldsPerDocumentSignature`<br>* Date Signed Field use `SubFormFieldsPerDocumentDateSigned`<br>* Initials Field use `SubFormFieldsPerDocumentInitials`<br>* Text Merge Field use `SubFormFieldsPerDocumentTextMerge`<br>* Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge` |
 | <code>mergeFields?</code> | <code>[SubMergeField](src/models/sub-merge-field.ts)[]</code> | Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.<br>If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document. |
 | <code>message?</code> | <code>string</code> | The default template email message. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>showPreview?</code> | <code>boolean</code> | This allows the requester to enable the editor/preview experience.<br><br>- `show_preview=true`: Allows requesters to enable the editor/preview experience.<br>- `show_preview=false`: Allows requesters to disable the editor/preview experience.<br>**Default**: false |
 | <code>showProgressStepper?</code> | <code>boolean</code> | When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.<br>**Default**: true |
 | <code>signerRoles?</code> | <code>[SubTemplateRole](src/models/sub-template-role.ts)[]</code> | An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template. |
@@ -2904,7 +2905,7 @@ if (result.ok) {
 </details>
 
 <details>
-<summary><code>templateFiles(request: Template.TemplateFilesRequest, options?: RequestOptions): ApiPromise&lt;undefined, Template.TemplateFilesError&gt;</code></summary>
+<summary><code>templateFiles(request: Template.TemplateFilesRequest, options?: RequestOptions): ApiPromise&lt;BinaryContent, Template.TemplateFilesError&gt;</code></summary>
 
 <dl>
 <dd>
@@ -2928,7 +2929,10 @@ If the files are currently being prepared, a status code of `409` will be return
 
 ```ts
 try {
-  await client.template.templateFiles({ templateId: "f57db65d3f933b5316d398057a36176831451a35" });
+  const response = await client.template.templateFiles({
+    templateId: "f57db65d3f933b5316d398057a36176831451a35",
+  });
+  // TODO: Handle 'response' of type BinaryContent
 } catch (err) {
   // TODO: Handle 'err' of type Template.TemplateFilesError, discriminated with 'err.payload.kind'
 }
@@ -2948,7 +2952,7 @@ const result = await client.template.templateFiles({
 }).asApiResult();
 // TODO: Use 'result.status' and 'result.headers' to read the raw response status and headers
 if (result.ok) {
-  // TODO: The call succeeded and resolves to no body
+  // TODO: Use 'result.value' of type BinaryContent
 } else {
   // TODO: Handle 'result', discriminated with 'result.payload.kind'
 }
@@ -2977,12 +2981,12 @@ if (result.ok) {
 
 **Direct**: `await client.template.templateFiles(request)`
 
-- **OnSuccess**: <code>undefined</code>
+- **OnSuccess**: <code>BinaryContent</code>
 - **OnError**: throws <code>[Template.TemplateFilesError](src/resources/template.ts)</code>, with `err.payload` discriminated on `kind`
 
 **As ApiResult**: `await client.template.templateFiles(request).asApiResult()`
 
-- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;undefined, Template.TemplateFilesError&gt;</code>, with `result.value` of type <code>undefined</code>
+- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;BinaryContent, Template.TemplateFilesError&gt;</code>, with `result.value` of type <code>BinaryContent</code>
 - **OnError**: `result.payload` discriminated on `kind`, with `result.message`
 
 **Thrown**: <code>[DropboxSignApiError](src/core/errors.ts)</code> on any operational failure — a caller abort and a programmer error stay outside the family and reach you raw
@@ -4818,7 +4822,7 @@ if (result.ok) {
 | <code>formFieldsPerDocument?</code> | <code>[SubFormFieldsPerDocumentBase](src/models/unions/sub-form-fields-per-document-base.ts)[]</code> | The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)<br><br>**NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.<br><br>* Text Field use `SubFormFieldsPerDocumentText`<br>* Dropdown Field use `SubFormFieldsPerDocumentDropdown`<br>* Hyperlink Field use `SubFormFieldsPerDocumentHyperlink`<br>* Checkbox Field use `SubFormFieldsPerDocumentCheckbox`<br>* Radio Field use `SubFormFieldsPerDocumentRadio`<br>* Signature Field use `SubFormFieldsPerDocumentSignature`<br>* Date Signed Field use `SubFormFieldsPerDocumentDateSigned`<br>* Initials Field use `SubFormFieldsPerDocumentInitials`<br>* Text Merge Field use `SubFormFieldsPerDocumentTextMerge`<br>* Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge` |
 | <code>hideTextTags?</code> | <code>boolean</code> | Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.<br>**Default**: false |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>showProgressStepper?</code> | <code>boolean</code> | When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.<br>**Default**: true |
 | <code>signers?</code> | <code>[SubUnclaimedDraftSigner](src/models/sub-unclaimed-draft-signer.ts)[]</code> | Add Signers to your Unclaimed Draft Signature Request. |
 | <code>signingOptions?</code> | <code>[SubSigningOptions](src/models/sub-signing-options.ts)</code> | This allows the requester to specify the types allowed for creating a signature and specify another signing options.<br><br>**NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.<br><br>**NOTE:** If `force_advanced_signature_details` is set, allowed types has to be defined too. |
@@ -4945,7 +4949,7 @@ if (result.ok) {
 | <code>holdRequest?</code> | <code>boolean</code> | The request from this draft will not automatically send to signers post-claim if set to `true`. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.<br>**Default**: false |
 | <code>isForEmbeddedSigning?</code> | <code>boolean</code> | The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.<br>**Default**: false |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>requestingRedirectUrl?</code> | <code>string</code> | The URL you want signers redirected to after they successfully request a signature. |
 | <code>showPreview?</code> | <code>boolean</code> | This allows the requester to enable the editor/preview experience.<br><br>- `show_preview=true`: Allows requesters to enable the editor/preview experience.<br>- `show_preview=false`: Allows requesters to disable the editor/preview experience. |
 | <code>showProgressStepper?</code> | <code>boolean</code> | When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.<br>**Default**: true |
@@ -5074,7 +5078,7 @@ if (result.ok) {
 | <code>holdRequest?</code> | <code>boolean</code> | The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.<br>**Default**: false |
 | <code>isForEmbeddedSigning?</code> | <code>boolean</code> | The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.<br>**Default**: false |
 | <code>message?</code> | <code>string</code> | The custom message in the email that will be sent to the signers. |
-| <code>metadata?</code> | <code>Record&lt;string, Record&lt;string, unknown&gt;&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
+| <code>metadata?</code> | <code>Record&lt;string, unknown&gt;</code> | Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. |
 | <code>previewOnly?</code> | <code>boolean</code> | This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).<br><br>- `preview_only=true`: Allows requesters to enable the preview only experience.<br>- `preview_only=false`: Allows requesters to disable the preview only experience.<br><br>**NOTE:** This parameter overwrites `show_preview=1` (if set).<br>**Default**: false |
 | <code>requestingRedirectUrl?</code> | <code>string</code> | The URL you want signers redirected to after they successfully request a signature. |
 | <code>showPreview?</code> | <code>boolean</code> | This allows the requester to enable the editor/preview experience.<br><br>- `show_preview=true`: Allows requesters to enable the editor/preview experience.<br>- `show_preview=false`: Allows requesters to disable the editor/preview experience.<br>**Default**: false |
@@ -6907,7 +6911,7 @@ if (result.ok) {
 </details>
 
 <details>
-<summary><code>faxFiles(request: Fax.FaxFilesRequest, options?: RequestOptions): ApiPromise&lt;undefined, Fax.FaxFilesError&gt;</code></summary>
+<summary><code>faxFiles(request: Fax.FaxFilesRequest, options?: RequestOptions): ApiPromise&lt;BinaryContent, Fax.FaxFilesError&gt;</code></summary>
 
 <dl>
 <dd>
@@ -6929,7 +6933,8 @@ Downloads files associated with a Fax
 
 ```ts
 try {
-  await client.fax.faxFiles({ faxId: "fa5c8a0b0f492d768749333ad6fcc214c111e967" });
+  const response = await client.fax.faxFiles({ faxId: "fa5c8a0b0f492d768749333ad6fcc214c111e967" });
+  // TODO: Handle 'response' of type BinaryContent
 } catch (err) {
   // TODO: Handle 'err' of type Fax.FaxFilesError, discriminated with 'err.payload.kind'
 }
@@ -6947,7 +6952,7 @@ try {
 const result = await client.fax.faxFiles({ faxId: "fa5c8a0b0f492d768749333ad6fcc214c111e967" }).asApiResult();
 // TODO: Use 'result.status' and 'result.headers' to read the raw response status and headers
 if (result.ok) {
-  // TODO: The call succeeded and resolves to no body
+  // TODO: Use 'result.value' of type BinaryContent
 } else {
   // TODO: Handle 'result', discriminated with 'result.payload.kind'
 }
@@ -6975,12 +6980,12 @@ if (result.ok) {
 
 **Direct**: `await client.fax.faxFiles(request)`
 
-- **OnSuccess**: <code>undefined</code>
+- **OnSuccess**: <code>BinaryContent</code>
 - **OnError**: throws <code>[Fax.FaxFilesError](src/resources/fax.ts)</code>, with `err.payload` discriminated on `kind`
 
 **As ApiResult**: `await client.fax.faxFiles(request).asApiResult()`
 
-- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;undefined, Fax.FaxFilesError&gt;</code>, with `result.value` of type <code>undefined</code>
+- **OnSuccess**: <code>[ApiResult](src/core/api-promise.ts)&lt;BinaryContent, Fax.FaxFilesError&gt;</code>, with `result.value` of type <code>BinaryContent</code>
 - **OnError**: `result.payload` discriminated on `kind`, with `result.message`
 
 **Thrown**: <code>[DropboxSignApiError](src/core/errors.ts)</code> on any operational failure — a caller abort and a programmer error stay outside the family and reach you raw

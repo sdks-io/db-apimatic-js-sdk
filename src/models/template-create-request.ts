@@ -91,7 +91,7 @@ export type TemplateCreateRequest = {
    * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up
    * to 40 characters long and values up to 1000 characters long.
    */
-  metadata?: Record<string, Record<string, unknown>>;
+  metadata?: Record<string, unknown>;
   /**
    * An array of the designated signer roles that must be specified when sending a SignatureRequest
    * using this Template.
@@ -137,7 +137,7 @@ export const templateCreateRequestSchema: Schema<TemplateCreateRequest> = s.obje
   formFieldsPerDocument: s.array(s.lazy(() => subFormFieldsPerDocumentBaseSchema)),
   mergeFields: s.optional(s.array(s.lazy(() => subMergeFieldSchema))),
   message: s.optional(s.string()),
-  metadata: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+  metadata: s.optional(s.record(s.string(), s.unknown())),
   signerRoles: s.array(s.lazy(() => subTemplateRoleSchema)),
   subject: s.optional(s.string()),
   testMode: s.defaulted(s.boolean(), false),

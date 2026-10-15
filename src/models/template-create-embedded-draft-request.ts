@@ -105,7 +105,7 @@ export type TemplateCreateEmbeddedDraftRequest = {
    * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up
    * to 40 characters long and values up to 1000 characters long.
    */
-  metadata?: Record<string, Record<string, unknown>>;
+  metadata?: Record<string, unknown>;
   /**
    * This allows the requester to enable the editor/preview experience.
    *
@@ -179,7 +179,7 @@ export const templateCreateEmbeddedDraftRequestSchema: Schema<TemplateCreateEmbe
     formFieldsPerDocument: s.optional(s.array(s.lazy(() => subFormFieldsPerDocumentBaseSchema))),
     mergeFields: s.optional(s.array(s.lazy(() => subMergeFieldSchema))),
     message: s.optional(s.string()),
-    metadata: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+    metadata: s.optional(s.record(s.string(), s.unknown())),
     showPreview: s.defaulted(s.boolean(), false),
     showProgressStepper: s.defaulted(s.boolean(), true),
     signerRoles: s.optional(s.array(s.lazy(() => subTemplateRoleSchema))),

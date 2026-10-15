@@ -29,7 +29,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `ccs` | `form` | — | `SubCc[]` | no | — |
 | `customFields` | `form` | `custom_fields` | `SubCustomField[]` | no | — |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingRedirectUrl` | `form` | `signing_redirect_url` | `string` | no | — |
 | `subject` | `form` | — | `string` | no | — |
 | `testMode` | `form` | `test_mode` | `boolean` | no | `false` |
@@ -67,7 +67,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `clientId` | `form` | `client_id` | `string` | no | — |
 | `customFields` | `form` | `custom_fields` | `SubCustomField[]` | no | — |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingRedirectUrl` | `form` | `signing_redirect_url` | `string` | no | — |
 | `subject` | `form` | — | `string` | no | — |
 | `testMode` | `form` | `test_mode` | `boolean` | no | `false` |
@@ -134,7 +134,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `formFieldsPerDocument` | `form` | `form_fields_per_document` | `SubFormFieldsPerDocumentBase[]` | no | — |
 | `hideTextTags` | `form` | `hide_text_tags` | `boolean` | no | `false` |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingOptions` | `form` | `signing_options` | `SubSigningOptions` | no | — |
 | `subject` | `form` | — | `string` | no | — |
 | `testMode` | `form` | `test_mode` | `boolean` | no | `false` |
@@ -182,7 +182,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `files` | `form` | — | `FileInput` | no | — |
 | `fileUrls` | `form` | `file_urls` | `string[]` | no | — |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingOptions` | `form` | `signing_options` | `SubSigningOptions` | no | — |
 | `subject` | `form` | — | `string` | no | — |
 | `testMode` | `form` | `test_mode` | `boolean` | no | `false` |
@@ -232,7 +232,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `hideTextTags` | `form` | `hide_text_tags` | `boolean` | no | `false` |
 | `isEid` | `form` | `is_eid` | `boolean` | no | `false` |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingOptions` | `form` | `signing_options` | `SubSigningOptions` | no | — |
 | `signingRedirectUrl` | `form` | `signing_redirect_url` | `string` | no | — |
 | `subject` | `form` | — | `string` | no | — |
@@ -288,7 +288,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `formFieldsPerDocument` | `form` | `form_fields_per_document` | `SubFormFieldsPerDocumentBase[]` | no | — |
 | `hideTextTags` | `form` | `hide_text_tags` | `boolean` | no | `false` |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingOptions` | `form` | `signing_options` | `SubSigningOptions` | no | — |
 | `subject` | `form` | — | `string` | no | — |
 | `testMode` | `form` | `test_mode` | `boolean` | no | `false` |
@@ -337,7 +337,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `files` | `form` | — | `FileInput` | no | — |
 | `fileUrls` | `form` | `file_urls` | `string[]` | no | — |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingOptions` | `form` | `signing_options` | `SubSigningOptions` | no | — |
 | `subject` | `form` | — | `string` | no | — |
 | `testMode` | `form` | `test_mode` | `boolean` | no | `false` |
@@ -379,7 +379,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `fileUrls` | `form` | `file_urls` | `string[]` | no | — |
 | `isEid` | `form` | `is_eid` | `boolean` | no | `false` |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingOptions` | `form` | `signing_options` | `SubSigningOptions` | no | — |
 | `signingRedirectUrl` | `form` | `signing_redirect_url` | `string` | no | — |
 | `subject` | `form` | — | `string` | no | — |
@@ -397,11 +397,11 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 
 ### signatureRequestFiles
 
-- **Signature**: `signatureRequestFiles(request: SignatureRequest.SignatureRequestFilesRequest, options?: RequestOptions): ApiPromise<undefined, SignatureRequest.SignatureRequestFilesError>`
+- **Signature**: `signatureRequestFiles(request: SignatureRequest.SignatureRequestFilesRequest, options?: RequestOptions): ApiPromise<BinaryContent, SignatureRequest.SignatureRequestFilesError>`
 - **Wire**: `GET /signature_request/files/{signature_request_id}`
 - **Auth**: any of `apiKey`, `oauth2` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
-- **Returns**: `undefined` — the operation resolves to nothing
+- **Returns**: `BinaryContent` — an unread `stream` the caller owns: buffer it with `new Response(…)`, read it with a reader or `for await`, or release it with `stream.cancel()`
 - **Error**: `DropboxSignApiError` with `kind: "api"`, an instance of `SignatureRequest.SignatureRequestFilesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"errorResponse"` [4XX wildcard] `ErrorResponse` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
@@ -604,7 +604,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `hideTextTags` | `form` | `hide_text_tags` | `boolean` | no | `false` |
 | `isEid` | `form` | `is_eid` | `boolean` | no | `false` |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingOptions` | `form` | `signing_options` | `SubSigningOptions` | no | — |
 | `signingRedirectUrl` | `form` | `signing_redirect_url` | `string` | no | — |
 | `subject` | `form` | — | `string` | no | — |
@@ -653,7 +653,7 @@ Accessor: `client.signatureRequest` · Source: `src/resources/signature-request.
 | `fileUrls` | `form` | `file_urls` | `string[]` | no | — |
 | `isEid` | `form` | `is_eid` | `boolean` | no | `false` |
 | `message` | `form` | — | `string` | no | — |
-| `metadata` | `form` | — | `Record<string, Record<string, unknown>>` | no | — |
+| `metadata` | `form` | — | `Record<string, unknown>` | no | — |
 | `signingOptions` | `form` | `signing_options` | `SubSigningOptions` | no | — |
 | `signingRedirectUrl` | `form` | `signing_redirect_url` | `string` | no | — |
 | `subject` | `form` | — | `string` | no | — |

@@ -61,7 +61,7 @@ export type SignatureRequestSendWithTemplateRequest = {
    * Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up
    * to 40 characters long and values up to 1000 characters long.
    */
-  metadata?: Record<string, Record<string, unknown>>;
+  metadata?: Record<string, unknown>;
   /** Add Signers to your Templated-based Signature Request. */
   signers: SubSignatureRequestTemplateSigner[];
   /**
@@ -106,7 +106,7 @@ export const signatureRequestSendWithTemplateRequestSchema: Schema<SignatureRequ
     fileUrls: s.optional(s.array(s.string())),
     isEid: s.defaulted(s.boolean(), false),
     message: s.optional(s.string()),
-    metadata: s.optional(s.record(s.string(), s.record(s.string(), s.unknown()))),
+    metadata: s.optional(s.record(s.string(), s.unknown())),
     signers: s.array(s.lazy(() => subSignatureRequestTemplateSignerSchema)),
     signingOptions: s.optional(s.lazy(() => subSigningOptionsSchema)),
     signingRedirectUrl: s.optional(s.string()),
